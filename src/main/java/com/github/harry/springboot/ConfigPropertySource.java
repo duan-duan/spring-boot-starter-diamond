@@ -3,6 +3,7 @@ package com.github.harry.springboot;
 
 import org.springframework.core.env.EnumerablePropertySource;
 
+import java.util.Properties;
 import java.util.Set;
 
 
@@ -11,11 +12,11 @@ import java.util.Set;
  *
  * @author Jason Song(song_s@ctrip.com)
  */
-public class ConfigPropertySource extends EnumerablePropertySource<DiamondProperties> {
+public class ConfigPropertySource extends EnumerablePropertySource<Properties> {
 
   private static final String[] EMPTY_ARRAY = new String[0];
 
-  public ConfigPropertySource(String name, DiamondProperties source) {
+  public ConfigPropertySource(String name, Properties source) {
     super(name, source);
   }
 

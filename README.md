@@ -22,7 +22,7 @@ cd spring-boot-starter-diamond
 mvn clean install
 ```
 
-### 3. 修改`maven`配置文件（可以参考样例[`spring-boot-starter-diamond-sample`](https://github.com/star45/spring-boot-starter-diamond-sample)）
+### 3. 修改`maven`配置文件
 
 * 在`spring boot`项目的`pom.xml`增加`parent`:
 
@@ -30,7 +30,7 @@ mvn clean install
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.4.3.RELEASE</version>
+        <version>1.5.10.RELEASE</version>
         <relativePath/>
     </parent>
  ```
@@ -47,7 +47,6 @@ mvn clean install
  </dependency>
  ```
 
-* `maven`插件用于打包成可执行的`uber-jar`文件，添加以下插件(这里一定要加载需要打包成`jar`的`mudule`的`pom`中)
 
 ```xml
 <plugin>
@@ -56,26 +55,6 @@ mvn clean install
     <version>1.3.6.RELEASE</version>
 </plugin>
 ```
-
-### 4. 使用服务
-
-服务接口：
-
-```java
-@RestController
-@RequestMapping("/api")
-public class ZKClientRestful implements DiamondPropertyAware {
-
-    @Override
-    public void setDiamondProperties(Properties properties) {
-
-        logger.info("从获取diamond获取地址：{}",properties.getProperty(key));
-
-    }
-}
-
-```
-
 
 在`application.properties`添加`diamond`的信息，如下：
 
